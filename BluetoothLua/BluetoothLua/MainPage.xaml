@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BluetoothLua"
+             x:Class="BluetoothLua.MainPage">
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ScrollView  x:Name="CodeView">
+            <local:LuaCodeView CodeText="{Binding ScriptText, Mode=TwoWay}"/>
+        </ScrollView>
+        <Button WidthRequest="40" Text="Run" Command="{Binding ScriptRunCommand}" HorizontalOptions="End" Grid.Row="1" x:Name="RunButton"/>
+        <ScrollView Grid.Row="2" x:Name="LogView">
+            <Label FormattedText="{Binding OutputFormattedText}" BackgroundColor="Black"/>
+        </ScrollView>
+    </Grid>
+</ContentPage>
